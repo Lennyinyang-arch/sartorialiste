@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Sartorialiste — L'art du vêtement classique</title>
+<meta name="description" content="Un espace dédié à l'élégance masculine classique, au savoir-faire artisanal et à la culture du vêtement. The Sartorialist — A sanctuary for classical menswear and sartorial culture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --noir: #0a0a0a;
+  --blanc: #f5f2ec;
+  --creme: #e8e2d5;
+  --or: #b8956a;
+  --or-pale: #d4b896;
+  --gris: #6b6560;
+  --gris-clair: #c5bfb5;
+  --bordeaux: #5c2d2d;
+  --surface: #111111;
+  --surface2: #1a1a1a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--noir);
+  color: var(--blanc);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--noir); }
+::-webkit-scrollbar-thumb { background: var(--or); }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+
+nav.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(20px);
+  padding: 16px 60px;
+  border-bottom: 1px solid rgba(184,149,106,0.15);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--blanc);
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: var(--or);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--or); }
+
+.lang-switch {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--or);
+  cursor: pointer;
+  border: 1px solid var(--or);
+  padding: 6px 14px;
+  transition: all 0.3s;
+}
+
+.lang-switch:hover {
+  background: var(--or);
+  color: var(--noir);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.85) 100%),
+    url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1800&q=80') center/cover no-repeat;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 60px;
+  max-width: 800px;
+  animation: fadeInUp 1.2s ease both;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--or);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 90px);
+  font-weight: 300;
+  line-height: 1.05;
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--or-pale);
+}
+
+.hero-desc {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--gris-clair);
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 14px 36px;
+  background: var(--or);
+  color: var(--noir);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--or-pale);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  padding: 14px 36px;
+  border: 1px solid rgba(184,149,106,0.4);
+  color: var(--or);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  border-color: var(--or);
+  background: rgba(184,149,106,0.08);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gris);
+  animation: fadeIn 2s 1s both;
+}
+
+.hero-scroll::before {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--or));
+  animation: scrollLine 2s 1s infinite;
+}
+
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ===== DIVIDER ===== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184,149,106,0.3), transparent);
+}
+
+.divider-ornament {
+  color: var(--or);
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+/* ===== PHILOSOPHIE ===== */
+.section-philosophie {
+  padding: 120px 60px;
+  background: var(--surface);
+  position: relative;
+}
+
+.section-philosophie::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--or), transparent);
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.section-title em { font-style: italic; color: var(--or-pale); }
+
+.philo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.philo-text p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--gris-clair);
+  margin-bottom: 20px;
+}
+
+.philo-quote {
+  border-left: 2px solid var(--or);
+  padding: 20px 32px;
+  margin: 40px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--or-pale);
+  line-height: 1.5;
+}
+
+.philo-image {
+  position: relative;
+}
+
+.philo-image img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(1.05);
+}
+
+.philo-image::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(184,149,106,0.2);
+  z-index: 0;
+}
+
+.philo-image img { position: relative; z-index: 1; }
+
+/* ===== LES CODES ===== */
+.section-codes {
+  padding: 120px 60px;
+  background: var(--noir);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.codes-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.codes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.code-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+}
+
+.code-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: grayscale(30%);
+}
+
+.code-card:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.code-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  transition: all 0.4s;
+}
+
+.code-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 300;
+  color: rgba(184,149,106,0.2);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.code-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--blanc);
+  margin-bottom: 8px;
+}
+
+.code-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--or);
+}
+
+.code-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gris-clair);
+  line-height: 1.7;
+  margin-top: 12px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.code-card:hover .code-desc { max-height: 100px; }
+
+/* ===== LES MATIERES ===== */
+.section-matieres {
+  padding: 120px 60px;
+  background: var(--surface);
+}
+
+.matieres-header {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.matieres-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0;
+}
+
+.matiere-item {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(184,149,106,0.1);
+  transition: all 0.3s;
+  cursor: default;
+}
+
+.matiere-item:hover {
+  padding-left: 20px;
+  border-bottom-color: rgba(184,149,106,0.3);
+}
+
+.matiere-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: rgba(184,149,106,0.15);
+  line-height: 1;
+}
+
+.matiere-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--blanc);
+}
+
+.matiere-name em {
+  display: block;
+  font-size: 13px;
+  font-style: normal;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-top: 4px;
+}
+
+.matiere-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--gris-clair);
+}
+
+/* ===== LES MAISONS ===== */
+.section-maisons {
+  padding: 120px 60px;
+  background: var(--noir);
+  text-align: center;
+}
+
+.maisons-header {
+  max-width: 600px;
+  margin: 0 auto 80px;
+}
+
+.maisons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.maison-card {
+  padding: 40px 24px;
+  border: 1px solid rgba(184,149,106,0.1);
+  transition: all 0.4s;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.maison-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--or);
+  transition: width 0.4s;
+}
+
+.maison-card:hover::before { width: 100%; }
+.maison-card:hover { border-color: rgba(184,149,106,0.3); background: rgba(184,149,106,0.03); }
+
+.maison-city {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 12px;
+}
+
+.maison-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--blanc);
+  margin-bottom: 8px;
+}
+
+.maison-specialty {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 16px;
+}
+
+.maison-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gris-clair);
+}
+
+/* ===== LEXIQUE ===== */
+.section-lexique {
+  padding: 120px 60px;
+  background: var(--surface);
+}
+
+.lexique-header {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.lexique-search {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.lexique-search input {
+  width: 100%;
+  padding: 16px 24px 16px 50px;
+  background: rgba(184,149,106,0.05);
+  border: 1px solid rgba(184,149,106,0.2);
+  color: var(--blanc);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.lexique-search input:focus { border-color: var(--or); }
+.lexique-search input::placeholder { color: var(--gris); }
+
+.lexique-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--or);
+  font-size: 16px;
+}
+
+.lexique-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.lexique-item {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(184,149,106,0.08);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  transition: all 0.3s;
+}
+
+.lexique-item:hover { padding-left: 12px; }
+
+.lexique-term {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--or-pale);
+}
+
+.lexique-def {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gris-clair);
+}
+
+/* ===== CHATBOT ===== */
+.chat-trigger {
+  position: fixed;
+  bottom: 36px;
+  right: 36px;
+  z-index: 900;
+  width: 64px;
+  height: 64px;
+  background: var(--or);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: 0 8px 32px rgba(184,149,106,0.3);
+}
+
+.chat-trigger:hover {
+  background: var(--or-pale);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(184,149,106,0.4);
+}
+
+.chat-trigger svg { width: 28px; height: 28px; color: var(--noir); }
+
+.chat-container {
+  position: fixed;
+  bottom: 116px;
+  right: 36px;
+  z-index: 900;
+  width: 400px;
+  height: 580px;
+  background: var(--surface);
+  border: 1px solid rgba(184,149,106,0.2);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+
+.chat-container.open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.chat-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(184,149,106,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(184,149,106,0.05);
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--or);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--noir);
+}
+
+.chat-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--blanc);
+}
+
+.chat-status {
+  font-size: 11px;
+  color: var(--or);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chat-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4caf50;
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  color: var(--gris);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.chat-close:hover { color: var(--or); }
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--or) transparent;
+}
+
+.message {
+  max-width: 85%;
+  animation: messageIn 0.3s ease;
+}
+
+@keyframes messageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message.bot { align-self: flex-start; }
+.message.user { align-self: flex-end; }
+
+.message-bubble {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.message.bot .message-bubble {
+  background: rgba(184,149,106,0.08);
+  border: 1px solid rgba(184,149,106,0.15);
+  color: var(--gris-clair);
+  border-left: 2px solid var(--or);
+}
+
+.message.user .message-bubble {
+  background: var(--or);
+  color: var(--noir);
+  font-weight: 400;
+}
+
+.message-sender {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.message.bot .message-sender { color: var(--or); }
+.message.user .message-sender { color: var(--gris-clair); text-align: right; }
+
+.chat-typing {
+  display: none;
+  align-self: flex-start;
+  padding: 12px 16px;
+  background: rgba(184,149,106,0.08);
+  border: 1px solid rgba(184,149,106,0.15);
+  border-left: 2px solid var(--or);
+}
+
+.chat-typing.visible { display: flex; gap: 4px; align-items: center; }
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--or);
+  border-radius: 50%;
+  animation: typingDot 1.2s infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+.chat-input-area {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(184,149,106,0.15);
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.chat-input {
+  flex: 1;
+  background: rgba(184,149,106,0.05);
+  border: 1px solid rgba(184,149,106,0.2);
+  padding: 10px 14px;
+  color: var(--blanc);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  outline: none;
+  resize: none;
+  max-height: 100px;
+  transition: border-color 0.3s;
+  line-height: 1.5;
+}
+
+.chat-input:focus { border-color: var(--or); }
+.chat-input::placeholder { color: var(--gris); }
+
+.chat-send {
+  width: 40px;
+  height: 40px;
+  background: var(--or);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.chat-send:hover { background: var(--or-pale); }
+.chat-send:disabled { opacity: 0.4; cursor: not-allowed; }
+.chat-send svg { width: 16px; height: 16px; color: var(--noir); }
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 60px;
+  background: #050505;
+  border-top: 1px solid rgba(184,149,106,0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.footer-brand .logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--blanc);
+  margin-bottom: 16px;
+}
+
+.footer-brand .logo span { color: var(--or); }
+
+.footer-brand p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gris);
+  line-height: 1.7;
+}
+
+.footer-links h4 {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin-bottom: 20px;
+}
+
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gris);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--blanc); }
+
+.footer-bottom {
+  padding: 20px 60px;
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: 11px;
+  color: var(--gris);
+  letter-spacing: 0.05em;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links { display: none; }
+  .hero-content { padding: 0 24px; }
+  .section-philosophie, .section-codes, .section-matieres,
+  .section-maisons, .section-lexique { padding: 80px 24px; }
+  .philo-grid { grid-template-columns: 1fr; gap: 40px; }
+  .codes-grid { grid-template-columns: 1fr; }
+  .maisons-grid { grid-template-columns: repeat(2, 1fr); }
+  .lexique-grid { grid-template-columns: 1fr; }
+  .matiere-item { grid-template-columns: 60px 1fr; }
+  .matiere-desc { display: none; }
+  footer { grid-template-columns: 1fr; padding: 40px 24px; }
+  .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 8px; }
+  .chat-container { right: 16px; left: 16px; width: auto; bottom: 100px; }
+  .chat-trigger { right: 20px; bottom: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#" class="nav-logo"><span>Le</span> Sartorialiste</a>
+  <ul class="nav-links">
+    <li><a href="#philosophie" data-fr="Philosophie" data-en="Philosophy">Philosophie</a></li>
+    <li><a href="#codes" data-fr="Les Codes" data-en="The Codes">Les Codes</a></li>
+    <li><a href="#matieres" data-fr="Matières" data-en="Materials">Matières</a></li>
+    <li><a href="#maisons" data-fr="Les Maisons" data-en="The Houses">Les Maisons</a></li>
+    <li><a href="#lexique" data-fr="Lexique" data-en="Lexicon">Lexique</a></li>
+  </ul>
+  <button class="lang-switch" onclick="toggleLang()">EN</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span data-fr="L'art du vêtement classique" data-en="The art of classical dress">L'art du vêtement classique</span>
+    </div>
+    <h1>
+      <span data-fr="L'élégance est une <em>question</em> de caractère" data-en="Elegance is a <em>matter</em> of character">L'élégance est une <em>question</em> de caractère</span>
+    </h1>
+    <p class="hero-desc" data-fr="Un espace dédié à ceux qui comprennent que le vêtement n'est pas vanité, mais langage. Une exploration de la tradition tailleur, des matières nobles et de la culture vestimentaire qui transcende les modes." data-en="A space dedicated to those who understand that clothing is not vanity, but language. An exploration of tailoring tradition, noble materials and sartorial culture that transcends fashion.">
+      Un espace dédié à ceux qui comprennent que le vêtement n'est pas vanité, mais langage. Une exploration de la tradition tailleur, des matières nobles et de la culture vestimentaire qui transcende les modes.
+    </p>
+    <div class="hero-cta">
+      <a href="#philosophie" class="btn-primary" data-fr="Explorer" data-en="Explore">Explorer</a>
+      <button class="btn-ghost" onclick="openChat()" data-fr="Consulter le Sartorialiste" data-en="Consult the Sartorialist">Consulter le Sartorialiste</button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span data-fr="Défiler" data-en="Scroll">Défiler</span>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="section-philosophie" id="philosophie">
+  <div class="philo-grid">
+    <div class="philo-text reveal">
+      <div class="section-label" data-fr="Notre Philosophie" data-en="Our Philosophy">Notre Philosophie</div>
+      <h2 class="section-title">
+        <span data-fr="Le vêtement comme <em>art de vivre</em>" data-en="Clothing as an <em>art de vivre</em>">Le vêtement comme <em>art de vivre</em></span>
+      </h2>
+      <p data-fr="L'élégance masculine classique n'est pas affaire de tendances ni de dépenses ostentatoires. Elle repose sur une connaissance approfondie des codes, une attention portée aux détails et une fidélité aux maisons qui perpétuent des savoir-faire centenaires." data-en="Classic masculine elegance is not a matter of trends or ostentatious spending. It rests on a deep knowledge of codes, attention to detail and fidelity to houses that perpetuate century-old craftsmanship.">
+        L'élégance masculine classique n'est pas affaire de tendances ni de dépenses ostentatoires. Elle repose sur une connaissance approfondie des codes, une attention portée aux détails et une fidélité aux maisons qui perpétuent des savoir-faire centenaires.
+      </p>
+      <p data-fr="Le costume sur mesure n'est pas un luxe réservé à quelques-uns. C'est la compréhension que chaque vêtement raconte une histoire — celle de l'artisan qui l'a confectionné, celle de l'homme qui le porte et celle de la tradition dont il est l'héritier." data-en="The bespoke suit is not a luxury reserved for a few. It is the understanding that every garment tells a story — that of the craftsman who made it, that of the man who wears it, and that of the tradition of which he is the heir.">
+        Le costume sur mesure n'est pas un luxe réservé à quelques-uns. C'est la compréhension que chaque vêtement raconte une histoire — celle de l'artisan qui l'a confectionné, celle de l'homme qui le porte et celle de la tradition dont il est l'héritier.
+      </p>
+      <blockquote class="philo-quote" data-fr="« L'élégance, c'est quand l'intérieur est aussi beau que l'extérieur. »" data-en="« Elegance is when the inside is as beautiful as the outside. »">
+        « L'élégance, c'est quand l'intérieur est aussi beau que l'extérieur. »
+      </blockquote>
+      <p data-fr="Nous croyons en une élégance réfléchie, construite avec le temps. En la supériorité de la qualité sur la quantité. En l'idée que le mieux habillé n'est pas celui qui possède le plus, mais celui qui comprend le mieux ce qu'il porte." data-en="We believe in thoughtful elegance, built over time. In the superiority of quality over quantity. In the idea that the best dressed man is not the one who owns the most, but the one who best understands what he wears.">
+        Nous croyons en une élégance réfléchie, construite avec le temps. En la supériorité de la qualité sur la quantité. En l'idée que le mieux habillé n'est pas celui qui possède le plus, mais celui qui comprend le mieux ce qu'il porte.
+      </p>
+    </div>
+    <div class="philo-image reveal">
+      <img src="https://images.unsplash.com/photo-1594938298603-c8148c4a6dce?w=800&q=80" alt="Tailleur sur mesure" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- LES CODES -->
+<section id="codes">
+  <div class="section-codes">
+    <div class="codes-header reveal">
+      <div class="section-label" data-fr="Les Codes Vestimentaires" data-en="Dress Codes">Les Codes Vestimentaires</div>
+      <h2 class="section-title" data-fr="Comprendre avant de <em>porter</em>" data-en="Understand before you <em>wear</em>">Comprendre avant de <em>porter</em></h2>
+    </div>
+    <div class="codes-grid">
+      <div class="code-card reveal">
+        <img src="https://images.unsplash.com/photo-1598808503746-f34cfdb2b07d?w=600&q=80" alt="Black Tie" loading="lazy">
+        <div class="code-overlay">
+          <div class="code-number">01</div>
+          <div class="code-title" data-fr="Black Tie" data-en="Black Tie">Black Tie</div>
+          <div class="code-subtitle" data-fr="Tenue de soirée" data-en="Evening Wear">Tenue de soirée</div>
+          <div class="code-desc" data-fr="Le smoking noir ou midnight blue, la chemise à plastron, le nœud papillon en soie. Ici, chaque détail compte et toute déviation doit être intentionnelle." data-en="Black or midnight blue dinner jacket, dress shirt with bib front, silk bow tie. Here, every detail counts and any deviation must be intentional.">
+            Le smoking noir ou midnight blue, la chemise à plastron, le nœud papillon en soie. Ici, chaque détail compte et toute déviation doit être intentionnelle.
+          </div>
+        </div>
+      </div>
+      <div class="code-card reveal">
+        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80" alt="Business Formal" loading="lazy">
+        <div class="code-overlay">
+          <div class="code-number">02</div>
+          <div class="code-title" data-fr="Business Formal" data-en="Business Formal">Business Formal</div>
+          <div class="code-subtitle" data-fr="Le complet de ville" data-en="The City Suit">Le complet de ville</div>
+          <div class="code-desc" data-fr="Le costume deux ou trois pièces, chemise blanche ou bleue pâle, cravate en soie. L'uniforme du professionnel qui comprend le pouvoir symbolique du vêtement." data-en="Two or three-piece suit, white or pale blue shirt, silk tie. The uniform of the professional who understands the symbolic power of dress.">
+            Le costume deux ou trois pièces, chemise blanche ou bleue pâle, cravate en soie. L'uniforme du professionnel qui comprend le pouvoir symbolique du vêtement.
+          </div>
+        </div>
+      </div>
+      <div class="code-card reveal">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80" alt="Smart Casual" loading="lazy">
+        <div class="code-overlay">
+          <div class="code-number">03</div>
+          <div class="code-title" data-fr="Smart Casual" data-en="Smart Casual">Smart Casual</div>
+          <div class="code-subtitle" data-fr="L'élégance décontractée" data-en="Relaxed Elegance">L'élégance décontractée</div>
+          <div class="code-desc" data-fr="Le terrain le plus complexe à maîtriser. La veste sport, le pantalon de flanelle, le polo en coton fin. L'art de paraître à l'aise sans jamais paraître négligé." data-en="The most complex territory to master. The sport coat, flannel trousers, fine cotton polo. The art of appearing at ease without ever appearing careless.">
+            Le terrain le plus complexe à maîtriser. La veste sport, le pantalon de flanelle, le polo en coton fin. L'art de paraître à l'aise sans jamais paraître négligé.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LES MATIERES -->
+<section class="section-matieres" id="matieres">
+  <div class="matieres-header reveal">
+    <div class="section-label" data-fr="Les Matières Nobles" data-en="Noble Materials">Les Matières Nobles</div>
+    <h2 class="section-title" data-fr="Connaître ce que l'on <em>touche</em>" data-en="Knowing what you <em>touch</em>">Connaître ce que l'on <em>touche</em></h2>
+  </div>
+  <div class="matieres-list">
+    <div class="matiere-item reveal">
+      <div class="matiere-num">01</div>
+      <div class="matiere-name">Laine <em data-fr="La reine des fibres" data-en="The queen of fibres">La reine des fibres</em></div>
+      <div class="matiere-desc" data-fr="Du Merinos australien aux tweeds des Hébrides, la laine est la matière par excellence du tailleur classique. Son grammage, son armure et son origine définissent son caractère." data-en="From Australian Merino to Hebridean tweeds, wool is the quintessential material of classic tailoring. Its weight, weave and origin define its character.">
+        Du Merinos australien aux tweeds des Hébrides, la laine est la matière par excellence du tailleur classique. Son grammage, son armure et son origine définissent son caractère.
+      </div>
+    </div>
+    <div class="matiere-item reveal">
+      <div class="matiere-num">02</div>
+      <div class="matiere-name">Cachemire <em data-fr="Le luxe discret" data-en="Discreet luxury">Le luxe discret</em></div>
+      <div class="matiere-desc" data-fr="Issu du duvet des chèvres de Cachemire, cette fibre d'une douceur exceptionnelle est réservée aux pièces de caractère — pulls, vestes légères et manteaux d'exception." data-en="From the down of Kashmir goats, this exceptionally soft fibre is reserved for statement pieces — knitwear, light jackets and exceptional overcoats.">
+        Issu du duvet des chèvres de Cachemire, cette fibre d'une douceur exceptionnelle est réservée aux pièces de caractère — pulls, vestes légères et manteaux d'exception.
+      </div>
+    </div>
+    <div class="matiere-item reveal">
+      <div class="matiere-num">03</div>
+      <div class="matiere-name">Lin <em data-fr="La noblesse estivale" data-en="Summer nobility">La noblesse estivale</em></div>
+      <div class="matiere-desc" data-fr="Le lin froisse, certes — mais avec élégance. En été, une veste en lin drapé témoigne d'une connaissance des matières que peu d'hommes possèdent." data-en="Linen wrinkles, certainly — but with elegance. In summer, a draped linen jacket demonstrates a knowledge of materials that few men possess.">
+        Le lin froisse, certes — mais avec élégance. En été, une veste en lin drapé témoigne d'une connaissance des matières que peu d'hommes possèdent.
+      </div>
+    </div>
+    <div class="matiere-item reveal">
+      <div class="matiere-num">04</div>
+      <div class="matiere-name">Soie <em data-fr="La distinction absolue" data-en="Absolute distinction">La distinction absolue</em></div>
+      <div class="matiere-desc" data-fr="Réservée aux cravates, pochettes et doublures d'exception, la soie apporte brillance et fluidité. Une cravate en soie tissée de Lyon reste la référence absolue." data-en="Reserved for ties, pocket squares and exceptional linings, silk brings lustre and fluidity. A Lyonnais woven silk tie remains the absolute reference.">
+        Réservée aux cravates, pochettes et doublures d'exception, la soie apporte brillance et fluidité. Une cravate en soie tissée de Lyon reste la référence absolue.
+      </div>
+    </div>
+    <div class="matiere-item reveal">
+      <div class="matiere-num">05</div>
+      <div class="matiere-name">Flanelle <em data-fr="Le confort de l'aristocrate" data-en="The aristocrat's comfort">Le confort de l'aristocrate</em></div>
+      <div class="matiere-desc" data-fr="La flanelle grise est peut-être la matière la plus polyvalente de la garde-robe masculine. Un pantalon de flanelle bien coupé s'adapte à presque toutes les situations." data-en="Grey flannel is perhaps the most versatile material in the masculine wardrobe. A well-cut flannel trouser adapts to almost every situation.">
+        La flanelle grise est peut-être la matière la plus polyvalente de la garde-robe masculine. Un pantalon de flanelle bien coupé s'adapte à presque toutes les situations.
+      </div>
+    </div>
+    <div class="matiere-item reveal">
+      <div class="matiere-num">06</div>
+      <div class="matiere-name">Tweed <em data-fr="La robustesse raffinée" data-en="Refined robustness">La robustesse raffinée</em></div>
+      <div class="matiere-desc" data-fr="Harris Tweed, Donegal, Thornproof — le tweed est le tissu de la campagne anglaise transposé à la ville. Sa texture riche et ses coloris complexes en font une matière d'exception." data-en="Harris Tweed, Donegal, Thornproof — tweed is the fabric of the English countryside transposed to the city. Its rich texture and complex colouring make it an exceptional material.">
+        Harris Tweed, Donegal, Thornproof — le tweed est le tissu de la campagne anglaise transposé à la ville. Sa texture riche et ses coloris complexes en font une matière d'exception.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LES MAISONS -->
+<section class="section-maisons" id="maisons">
+  <div class="maisons-header reveal">
+    <div class="section-label" data-fr="Les Grandes Maisons" data-en="The Great Houses">Les Grandes Maisons</div>
+    <h2 class="section-title" data-fr="Les gardiens de la <em>tradition</em>" data-en="The guardians of <em>tradition</em>">Les gardiens de la <em>tradition</em></h2>
+  </div>
+  <div class="maisons-grid">
+    <div class="maison-card reveal">
+      <div class="maison-city">Londres · Savile Row</div>
+      <div class="maison-name">Anderson & Sheppard</div>
+      <div class="maison-specialty" data-fr="Bespoke Tailoring" data-en="Bespoke Tailoring">Bespoke Tailoring</div>
+      <div class="maison-desc" data-fr="Fondée en 1906, la maison incarne le style anglais dans sa version la plus fluide et déstructurée. Sa coupe, dite 'soft', reste une référence mondiale." data-en="Founded in 1906, the house embodies the English style in its most fluid and unstructured form. Its 'soft' cut remains a worldwide reference.">
+        Fondée en 1906, la maison incarne le style anglais dans sa version la plus fluide et déstructurée. Sa coupe, dite 'soft', reste une référence mondiale.
+      </div>
+    </div>
+    <div class="maison-card reveal">
+      <div class="maison-city">Naples · Via Chiaia</div>
+      <div class="maison-name">Kiton</div>
+      <div class="maison-specialty" data-fr="Prêt-à-porter de luxe" data-en="Luxury Ready-to-Wear">Prêt-à-porter de luxe</div>
+      <div class="maison-desc" data-fr="La quintessence du style napolitain. Chaque veston Kiton est réalisé à la main en 25 heures de travail. Une rigueur artisanale rare dans le monde du prêt-à-porter." data-en="The quintessence of Neapolitan style. Each Kiton jacket is hand-crafted over 25 hours of work. A rare artisanal rigour in the world of ready-to-wear.">
+        La quintessence du style napolitain. Chaque veston Kiton est réalisé à la main en 25 heures de travail. Une rigueur artisanale rare dans le monde du prêt-à-porter.
+      </div>
+    </div>
+    <div class="maison-card reveal">
+      <div class="maison-city">Paris · Rue du Faubourg</div>
+      <div class="maison-name">Berluti</div>
+      <div class="maison-specialty" data-fr="Cordonnerie d'exception" data-en="Exceptional Shoemaking">Cordonnerie d'exception</div>
+      <div class="maison-desc" data-fr="Depuis 1895, Berluti œuvre au sommet de l'art cordonnier. Ses cuirs patinés à la main sont reconnaissables entre tous et constituent l'une des expressions les plus raffinées du luxe masculin." data-en="Since 1895, Berluti has worked at the pinnacle of the cobbler's art. Its hand-patinated leathers are unmistakable and constitute one of the most refined expressions of masculine luxury.">
+        Depuis 1895, Berluti œuvre au sommet de l'art cordonnier. Ses cuirs patinés à la main sont reconnaissables entre tous et constituent l'une des expressions les plus raffinées du luxe masculin.
+      </div>
+    </div>
+    <div class="maison-card reveal">
+      <div class="maison-city">Milan · Via Montenapoleone</div>
+      <div class="maison-name">Loro Piana</div>
+      <div class="maison-specialty" data-fr="Tissus & cachemire" data-en="Fabrics & Cashmere">Tissus & cachemire</div>
+      <div class="maison-desc" data-fr="Le nom Loro Piana est synonyme des fibres les plus rares du monde. Du vicuña à la laine du lotus, la maison est le fournisseur des plus grands tailleurs internationaux." data-en="The name Loro Piana is synonymous with the world's rarest fibres. From vicuña to lotus wool, the house is the supplier of the world's greatest tailors.">
+        Le nom Loro Piana est synonyme des fibres les plus rares du monde. Du vicuña à la laine du lotus, la maison est le fournisseur des plus grands tailleurs internationaux.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEXIQUE -->
+<section class="section-lexique" id="lexique">
+  <div class="lexique-header reveal">
+    <div class="section-label" data-fr="Le Lexique Sartorial" data-en="The Sartorial Lexicon">Le Lexique Sartorial</div>
+    <h2 class="section-title" data-fr="Les mots pour le <em>dire</em>" data-en="The words to <em>say it</em>">Les mots pour le <em>dire</em></h2>
+  </div>
+  <div class="lexique-search reveal">
+    <span class="lexique-search-icon">⌕</span>
+    <input type="text" id="lexiqueSearch" placeholder="Rechercher un terme..." oninput="filterLexique()" data-placeholder-fr="Rechercher un terme..." data-placeholder-en="Search a term...">
+  </div>
+  <div class="lexique-grid" id="lexiqueGrid">
+    <div class="lexique-item">
+      <div class="lexique-term">Bespoke</div>
+      <div class="lexique-def" data-fr="Terme anglais désignant le vêtement sur mesure réalisé selon les mesures exactes du client, avec un ou plusieurs essayages. Le nec plus ultra de la confection masculine." data-en="English term for a garment made entirely to the client's exact measurements, with one or more fittings. The pinnacle of masculine tailoring.">Terme anglais désignant le vêtement sur mesure réalisé selon les mesures exactes du client, avec un ou plusieurs essayages. Le nec plus ultra de la confection masculine.</div>
+    </div>
+    <div class="lexique-item">
+      <div class="lexique-term">Canvassed</div>
+      <div class="lexique-def" data-fr="Technique de construction d'une veste dans laquelle une toile (canvas) est cousue à la main entre le tissu et la doublure, permettant à la veste de s'adapter au corps avec le temps." data-en="Jacket construction technique in which a canvas is hand-sewn between the fabric and lining, allowing the jacket to mould to the body over time.">Technique de construction d'une veste dans laquelle une toile (canvas) est cousue à la main entre le tissu et la doublure, permettant à la veste de s'adapter au corps avec le temps.</div>
+    </div>
+    <div class="lexique-item">
+      <div class="lexique-term">Spalla camicia</div>
+      <div class="lexique-def" data-fr="Épaule 'chemise' caractéristique du style napolitain. La manche est cousue en excédent de tissu créant une légère ondulation naturelle, signe d'un travail artisanal authentique." data-en="'Shirt shoulder' characteristic of the Neapolitan style. The sleeve is sewn with excess fabric creating a slight natural ripple, a sign of authentic craftsmanship.">Épaule 'chemise' caractéristique du style napolitain. La manche est cousue en excédent de tissu créant une légère ondulation naturelle, signe d'un travail artisanal authentique.</div>
+    </div>
+    <div class="lexique-item">
+      <div class="lexique-term">Gorge</div>
+      <div class="lexique-def" data-fr="Hauteur à laquelle le revers se replie sur lui-même. Une gorge haute est caractéristique des coupes anglaises classiques tandis qu'une gorge basse est plus contemporaine." data-en="The height at which the lapel folds back on itself. A high gorge is characteristic of classic English cuts while a low gorge is more contemporary.">Hauteur à laquelle le revers se replie sur lui-même. Une gorge haute est caractéristique des coupes anglaises classiques tandis qu'une gorge basse est plus contemporaine.</div>
+    </div>
+    <div class="lexique-item">
+      <div class="lexique-term">Drape</div>
+      <div class="lexique-def" data-fr="Technique développée par Frederick Scholte qui consiste à laisser un excédent de tissu dans le dos et aux épaules, créant une aisance particulière et une silhouette distinctive." data-en="Technique developed by Frederick Scholte consisting in leaving excess fabric in the back and shoulders, creating a particular ease and distinctive silhouette.">Technique développée par Frederick Scholte qui consiste à laisser un excédent de tissu dans le dos et aux épaules, créant une aisance particulière et une silhouette distinctive.</div>
+    </div>
+    <div class="lexique-item">
+      <div class="lexique-term">Surgisme</div>
+      <div class="lexique-def" data-fr="Terme péjoratif désignant un excès de sartorialisme ostentatoire. Le surgisme se manifeste par une accumulation de détails — pochette extravagante, boutons de manchette imposants — qui trahit un manque de discernement." data-en="Pejorative term for an excess of ostentatious sartorialism. It manifests through an accumulation of details — extravagant pocket square, imposing cufflinks — that betrays a lack of discernment.">Terme péjoratif désignant un excès de sartorialisme ostentatoire. Le surgisme se manifeste par une accumulation de détails — pochette extravagante, boutons de manchette imposants — qui trahit un manque de discernement.</div>
+    </div>
+    <div class="lexique-item">
+      <div class="lexique-term">Patch pocket</div>
+      <div class="lexique-def" data-fr="Poche plaquée rapportée sur l'extérieur de la veste. Plus décontractée que la poche à passepoil, elle est caractéristique des vestes sport et des costumes de style napolitain." data-en="Patch pocket applied to the outside of the jacket. More casual than a welt pocket, it is characteristic of sport coats and Neapolitan-style suits.">Poche plaquée rapportée sur l'extérieur de la veste. Plus décontractée que la poche à passepoil, elle est caractéristique des vestes sport et des costumes de style napolitain.</div>
+    </div>
+    <div class="lexique-item">
+      <div class="lexique-term">Hopsack</div>
+      <div class="lexique-def" data-fr="Armure de tissage particulière donnant un aspect légèrement texturé et une bonne respirabilité. Idéale pour les vestes de printemps-été, elle est souvent utilisée en laine ou coton." data-en="Particular weaving pattern giving a slightly textured appearance and good breathability. Ideal for spring-summer jackets, often used in wool or cotton.">Armure de tissage particulière donnant un aspect légèrement texturé et une bonne respirabilité. Idéale pour les vestes de printemps-été, elle est souvent utilisée en laine ou coton.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo"><span>Le</span> Sartorialiste</div>
+    <p data-fr="Un espace dédié à l'élégance masculine classique, au savoir-faire artisanal et à la culture du vêtement." data-en="A space dedicated to classic masculine elegance, artisanal craftsmanship and sartorial culture.">
+      Un espace dédié à l'élégance masculine classique, au savoir-faire artisanal et à la culture du vêtement.
+    </p>
+  </div>
+  <div class="footer-links">
+    <h4 data-fr="Explorer" data-en="Explore">Explorer</h4>
+    <ul>
+      <li><a href="#philosophie" data-fr="Philosophie" data-en="Philosophy">Philosophie</a></li>
+      <li><a href="#codes" data-fr="Les Codes" data-en="The Codes">Les Codes</a></li>
+      <li><a href="#matieres" data-fr="Les Matières" data-en="Materials">Les Matières</a></li>
+      <li><a href="#maisons" data-fr="Les Maisons" data-en="The Houses">Les Maisons</a></li>
+      <li><a href="#lexique" data-fr="Lexique" data-en="Lexicon">Lexique</a></li>
+    </ul>
+  </div>
+  <div class="footer-links">
+    <h4 data-fr="Le Sartorialiste" data-en="The Sartorialist">Le Sartorialiste</h4>
+    <ul>
+      <li><a href="#" onclick="openChat()" data-fr="Consulter l'assistant" data-en="Consult the assistant">Consulter l'assistant</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p data-fr="© 2026 Le Sartorialiste. L'élégance n'est pas une question de prix." data-en="© 2026 Le Sartorialiste. Elegance is not a matter of price.">© 2026 Le Sartorialiste. L'élégance n'est pas une question de prix.</p>
+  <p data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</p>
+</div>
+
+<!-- CHATBOT -->
+<button class="chat-trigger" onclick="openChat()" id="chatTrigger">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+  </svg>
+</button>
+
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">
+    <div class="chat-header-info">
+      <div class="chat-avatar">S</div>
+      <div>
+        <div class="chat-name">Le Sartorialiste</div>
+        <div class="chat-status" data-fr="Expert en élégance masculine" data-en="Men's elegance expert">Expert en élégance masculine</div>
+      </div>
+    </div>
+    <button class="chat-close" onclick="closeChat()">×</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="message bot">
+      <div class="message-sender">Le Sartorialiste</div>
+      <div class="message-bubble" id="welcomeMessage">
+        Bonsoir. Je suis Le Sartorialiste — votre guide dans l'art du vêtement classique. Que souhaitez-vous explorer aujourd'hui ? Un conseil de mise, une question sur les matières, ou les codes d'une occasion particulière ?
+      </div>
+    </div>
+  </div>
+  <div class="chat-typing" id="chatTyping">
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+    <div class="typing-dot"></div>
+  </div>
+  <div class="chat-input-area">
+    <textarea class="chat-input" id="chatInput" placeholder="Posez votre question..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+    <button class="chat-send" id="chatSend" onclick="sendMessage()">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ===== LANGUAGE =====
+let currentLang = 'fr';
+
+function toggleLang() {
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  document.querySelector('.lang-switch').textContent = currentLang === 'fr' ? 'EN' : 'FR';
+  document.documentElement.setAttribute('data-lang', currentLang);
+  
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    if (el.tagName === 'INPUT') {
+      el.placeholder = el.getAttribute('data-placeholder-' + currentLang) || el.placeholder;
+    } else {
+      const content = el.getAttribute('data-' + currentLang);
+      if (content) el.innerHTML = content;
+    }
+  });
+
+  // Update welcome message
+  const welcome = document.getElementById('welcomeMessage');
+  if (currentLang === 'en') {
+    welcome.textContent = "Good evening. I am Le Sartorialiste — your guide in the art of classical dress. What would you like to explore today? Styling advice, a question about materials, or the codes for a particular occasion?";
+  } else {
+    welcome.textContent = "Bonsoir. Je suis Le Sartorialiste — votre guide dans l'art du vêtement classique. Que souhaitez-vous explorer aujourd'hui ? Un conseil de mise, une question sur les matières, ou les codes d'une occasion particulière ?";
+  }
+
+  const input = document.getElementById('chatInput');
+  input.placeholder = currentLang === 'fr' ? 'Posez votre question...' : 'Ask your question...';
+}
+
+// ===== NAVIGATION =====
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== REVEAL ON SCROLL =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== LEXIQUE FILTER =====
+function filterLexique() {
+  const search = document.getElementById('lexiqueSearch').value.toLowerCase();
+  document.querySelectorAll('.lexique-item').forEach(item => {
+    const term = item.querySelector('.lexique-term').textContent.toLowerCase();
+    const def = item.querySelector('.lexique-def').textContent.toLowerCase();
+    item.style.display = (term.includes(search) || def.includes(search)) ? '' : 'none';
+  });
+}
+
+// ===== CHATBOT =====
+let chatOpen = false;
+let conversationHistory = [];
+
+const SYSTEM_PROMPT = `Tu es Le Sartorialiste, un expert en élégance masculine classique et en culture du vêtement. Tu incarnes la quintessence du gentleman cultivé et passionné par l'art du vêtement.
+
+TON CARACTÈRE :
+- Tu parles avec élégance, précision et passion, mais sans condescendance
+- Tu es direct et utile, jamais vague
+- Tu maîtrises l'histoire du vêtement, les grands tailleurs, les maisons iconiques, les matières, les codes vestimentaires
+- Tu connais Savile Row, Naples, la mode française, les grands cordonniers, les chemisiers d'exception
+- Tu cites des maisons spécifiques, des termes techniques précis, des noms propres
+- Tu peux répondre en français ou en anglais selon la langue de l'interlocuteur
+- Tu es cultivé comme Hugo Jacomet de Parisian Gentleman — érudit mais accessible
+- Tu utilises parfois des termes techniques sartoriaux (bespoke, canvassed, spalla camicia, etc.) que tu expliques naturellement
+- Tu donnes des conseils pratiques et personnalisés
+- Tu n'hésites pas à mentionner les meilleurs adresses mondiales
+
+TES DOMAINES D'EXPERTISE :
+- Costume sur mesure (bespoke, made-to-measure, prêt-à-porter de qualité)
+- Codes vestimentaires (black tie, white tie, business formal, smart casual, casual)
+- Matières nobles (laine, cachemire, lin, soie, tweed, flanelle, worsted)
+- Chaussures de qualité (cordonnerie anglaise, italienne, française)
+- Chemiserie fine
+- Accessoires (cravates, pochettes, boutons de manchette, montres)
+- Les grandes maisons (Anderson & Sheppard, Kiton, Cesare Attolini, Rubinacci, Liverano & Liverano, Berluti, John Lobb, G&G, etc.)
+- Histoire de la mode masculine
+- Entretien et conservation des vêtements
+- Constitution d'une garde-robe capsule de qualité
+
+Réponds de manière concise mais substantielle. Évite les listes à puces excessives — préfère des paragraphes fluides et élégants.`;
+
+function openChat() {
+  chatOpen = true;
+  document.getElementById('chatContainer').classList.add('open');
+}
+
+function closeChat() {
+  chatOpen = false;
+  document.getElementById('chatContainer').classList.remove('open');
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+}
+
+function addMessage(content, role) {
+  const messages = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `message ${role}`;
+  div.innerHTML = `
+    <div class="message-sender">${role === 'bot' ? 'Le Sartorialiste' : (currentLang === 'fr' ? 'Vous' : 'You')}</div>
+    <div class="message-bubble">${content}</div>
+  `;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+  if (!message) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  document.getElementById('chatSend').disabled = true;
+
+  addMessage(message, 'user');
+  conversationHistory.push({ role: 'user', content: message });
+
+  const typing = document.getElementById('chatTyping');
+  typing.classList.add('visible');
+
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: conversationHistory,
+        system: SYSTEM_PROMPT
+      })
+    });
+
+    const data = await response.json();
+    typing.classList.remove('visible');
+
+    if (data.content && data.content[0]) {
+      const reply = data.content[0].text;
+      addMessage(reply, 'bot');
+      conversationHistory.push({ role: 'assistant', content: reply });
+    } else {
+      addMessage(currentLang === 'fr' ? 'Une erreur est survenue. Veuillez réessayer.' : 'An error occurred. Please try again.', 'bot');
+    }
+  } catch (err) {
+    typing.classList.remove('visible');
+    addMessage(currentLang === 'fr' ? 'Une erreur est survenue. Veuillez réessayer.' : 'An error occurred. Please try again.', 'bot');
+  }
+
+  document.getElementById('chatSend').disabled = false;
+  input.focus();
+}
+</script>
+</body>
+</html>
